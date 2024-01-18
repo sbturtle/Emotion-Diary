@@ -41,12 +41,13 @@ function App() {
     { id: 4, emotion: 2, content: "오늘의 일기 4", date: 1705389550887 },
     { id: 5, emotion: 5, content: "오늘의 일기 5", date: 1705389550888 },
   ];
+
   const [data, dispatch] = useReducer(reducer, dummyData);
-  const dataId = useRef(0);
+  const dataId = useRef(6);
   // CREATE
   const onCreate = (date, content, emotion) => {
     dispatch({
-      type: "CRAETE",
+      type: "CREATE",
       data: {
         id: dataId.current,
         date: new Date(date).getTime(),
@@ -81,7 +82,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/new" element={<New />} />
-              <Route path="/edit" element={<Edit />} />
+              <Route path="/edit/:id" element={<Edit />} />
               <Route path="/diary/:id" element={<Diary />} />
             </Routes>
           </div>
