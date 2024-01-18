@@ -45,7 +45,7 @@ function App() {
         (a, b) => parseInt(b.id) - parseInt(a.id)
       );
 
-      if (localData.length >= 1) {
+      if (diaryList.length) {
         dataId.current = parseInt(diaryList[0].id + 1);
 
         dispatch({ type: "INIT", data: diaryList });
